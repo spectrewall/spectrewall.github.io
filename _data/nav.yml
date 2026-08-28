@@ -1,0 +1,64 @@
+mods:
+  - id: masterwork
+    title: Masterwork
+    url: /masterwork/
+    sections:
+      - title: Overview
+        url: /masterwork/
+      - title: Progression
+        url: /masterwork/progression/overview.html
+        children:
+          - title: Overview
+            url: /masterwork/progression/overview.html
+          - title: Built-In
+            url: /masterwork/progression/built-in.html
+          - title: MMOSkillTree
+            url: /masterwork/progression/mmoskilltree.html
+      - title: Droplist
+        url: /masterwork/droplist.html
+      - title: Permissions
+        url: /masterwork/permissions.html
+      - title: Commands
+        url: /masterwork/commands/overview.html
+        children:
+          - title: Overview
+            url: /masterwork/commands/overview.html
+          - title: Blacklist
+            url: /masterwork/commands/blacklist.html
+          - title: Export
+            url: /masterwork/commands/export.html
+          - title: Grade
+            url: /masterwork/commands/grade.html
+          - title: Hammer
+            url: /masterwork/commands/hammer.html
+          - title: Item
+            url: /masterwork/commands/item.html
+          - title: Notifications
+            url: /masterwork/commands/notifications.html
+          - title: Odds
+            url: /masterwork/commands/odds.html
+          - title: Progression
+            url: /masterwork/commands/progression.html
+          - title: Ranking
+            url: /masterwork/commands/ranking.html
+          - title: Signature
+            url: /masterwork/commands/signature.html
+      - title: Configuration
+        url: /masterwork/configuration.html
+      - title: Public API
+        url: /masterwork/api/overview.html
+        children:
+          - title: Overview
+            url: /masterwork/api/overview.html
+          - title: Vocabulary
+            url: /masterwork/api/vocabulary.html
+          - title: Gear Registration
+            url: /masterwork/api/gear.html
+          - title: Craft Events
+            url: /masterwork/api/craft.html
+          - title: Players
+            url: /masterwork/api/player.html
+          - title: Progression Sources
+            url: /masterwork/api/progression.html
+          - title: Ranking
+            url: /masterwork/api/ranking.html

@@ -1,0 +1,44 @@
+{% assign current_mod = nil %}
+{% if page.mod %}
+  {% for mod in site.data.nav.mods %}
+    {% if mod.id == page.mod %}{% assign current_mod = mod %}{% endif %}
+  {% endfor %}
+{% endif %}
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true"></div>
+    <div>
+      <div class="brand-name">SpectreWall</div>
+      <span class="brand-sub">Hytale mods</span>
+    </div>
+  </div>
+
+  {% if current_mod %}
+    <nav class="toc">
+      <a class="nav-link back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">&lsaquo;</span> All mods</a>
+
+      <div class="nav-group-label">{{ current_mod.title }}</div>
+      {% for section in current_mod.sections %}
+        <a class="nav-link child{% if page.url == section.url %} active{% endif %}" href="{{ section.url | relative_url }}">{{ section.title }}</a>
+        {% if section.children %}
+          {% for child in section.children %}
+            <a class="nav-link grandchild{% if page.url == child.url %} active{% endif %}" href="{{ child.url | relative_url }}">{{ child.title }}</a>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </nav>
+  {% else %}
+    <nav class="toc">
+      <a class="nav-link{% if page.url == '/' or page.url == '/index.html' %} active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+
+      <div class="nav-group-label">Mods</div>
+      {% for mod in site.data.nav.mods %}
+        <a class="nav-link mod-entry" href="{{ mod.url | relative_url }}">
+          <span>{{ mod.title }}</span>
+          <span class="mod-entry-arrow" aria-hidden="true">&rsaquo;</span>
+        </a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+</aside>
