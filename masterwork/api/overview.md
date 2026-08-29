@@ -33,6 +33,8 @@ if (api != null) {
 
 Once Masterwork reaches `1.0.0`, this surface only ever grows. Adding a method to a public interface always gives it a default implementation, adding a constant to a public enum is allowed (which is why the javadoc tells consumers never to write an exhaustive `switch` over `Grade` or `GearCategory` without a default branch), and changing an event's payload means a new accessor beside the old one rather than a changed signature.
 
+That rule has been broken once, and this is the whole of it: `CraftProcessedEvent.xp()` was removed in `1.1.0`, three days after `1.0.0` was published and with no mod known to have compiled against the event yet. The reasoning, and what to read in its place, are on the [Craft Events](craft.html) page. `API_VERSION` did not move for it, since it marks what this surface gained and a removal is not a gain, and a consumer cannot branch defensively on a method that is already gone. Assume from here that the rule holds: a member that outlives its usefulness gets deprecated and kept, not deleted.
+
 ## Registration closes at boot
 
 Three things close for writing the moment the boot asset injection mints the graded item variants: the gear registry ([Gear Registration](gear.html)), the variant registry (the same page) and third party progression source registration ([Progression Sources](progression.html)). Register from the depending plugin's own `setup()`, or from a `LoadAssetEvent` listener below that priority. A call made after the freeze is refused with a logged warning rather than silently doing nothing.

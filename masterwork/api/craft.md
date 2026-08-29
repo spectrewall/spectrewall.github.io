@@ -62,12 +62,11 @@ A bulk craft that overflows the crafter's inventory is reported per unit: each u
 | `category()` | The item's own gear category. Not always the track its XP went to: a shield reports `SHIELD` here while its XP levels `WEAPON`. Call `GearCategory.progressionCategory()`, or read `NativeXpResult.track()`, for the track. |
 | `outcome()` | What Masterwork did with this craft. |
 | `handCrafted()` | Shorthand for `outcome() == HAND_CRAFTED`. |
-| `xp()` | The progression XP this craft awarded, `0` when it earned none. |
 | `rankingPoints()` | The ranking points this craft scored, non-zero only on a `MASTERWORK` roll. |
 | `itemLevel()` | The crafted item's `ItemLevel`, one of the two scoring inputs. |
 | `craftTimeSeconds()` | How long the recipe took, the other scoring input. An instant recipe reports whatever `instantRecipeSeconds` gave it. |
 | `destination()` | `INVENTORY` or `DROPPED` (an inventory that was full at the moment of crafting). |
-| `nativeXp()` | See below. |
+| `nativeXp()` | What this craft did to the crafter's standing on Masterwork's own ladder, the XP it awarded included. The only place this craft's XP is reported. See below. |
 
 Both enums, `Outcome` and `Destination`, are public API and may gain constants in the future: never write an exhaustive `switch` over either without a default branch.
 
@@ -83,3 +82,5 @@ What this one craft did to the crafter's standing on Masterwork's own progressio
 | `levelBefore` / `levelAfter` | The level each total buys. Equal unless this craft crossed a rung. |
 
 `leveledUp()` reports whether `levelAfter > levelBefore`. The figures are exact for the craft they describe, including the second and third craft of the same server tick, since they come from the same per-tick ledger the XP toast is built from.
+
+This is deliberately the only place the XP appears. Masterwork 1.0.0 also carried a flat `xp()` on the payload, which was removed in 1.1.0: it was exactly `nativeXp() == null ? 0 : nativeXp().xpGained()`, and reading it alone could not tell "this craft earned nothing" from "no XP is earned on this server at all", since another mod's progression system being active zeroes it just as a hand craft does. It also read as one half of a pair with `rankingPoints()`, which the two are not: points accrue under whichever progression source is active, XP only under Masterwork's own. Read `nativeXp()`, null check it, and take `xpGained` from it.
