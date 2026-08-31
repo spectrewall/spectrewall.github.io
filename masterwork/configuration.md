@@ -144,7 +144,7 @@ The crafting hammer feature.
 | Field | Default | Description |
 |---|---|---|
 | `enabled` | `true` | Gates the roll bonus a held hammer grants and the durability it costs. Nothing else in the hammer feature depends on this switch, so turning it off does not make hammers uncraftable. |
-| `bonusOwnerOnly` | `true` | Whether the bonus (and the wear it costs) apply only for the hammer's own creator. |
+| `bonusOwnerOnly` | `true` | Whether the bonus (and the wear it costs) apply only for the hammer's own creator. Ignored while the hammers carry the active ladder's own luck stat (see [MMOSkillTree](progression/mmoskilltree.html)): that stat is declared on the item, so it reaches whoever holds one and nothing can read the owner stamp. The Settings tab grays the row out and says so; use `bindToOwner` to keep a hammer in its owner's hands. |
 | `craftDurabilityDrain` | `1.0` | Exactly how much durability one craft costs the hammer in the crafter's hand. `0` means no wear; a negative value repairs the hammer instead, capped at its maximum. |
 | `nonOwnerDamageMultiplier` | `0.0` | Fraction of a hit a non owner deals while wielding someone else's hammer in combat. |
 | `nonOwnerDamageReflectedMultiplier` | `0.5` | Fraction of that hit reflected back onto the non owner. |
@@ -170,7 +170,7 @@ The source agnostic switch.
 | Field | Default | Description |
 |---|---|---|
 | `enabled` | `true` | Whether any progression system biases the roll at all. Off, every craft uses `noProgressionOdds`. |
-| `source` | `self` | Which system is active: `self` (Masterwork's own ladder), `none`, or a registered third party mod's id. |
+| `source` | `self` | Which system is active: `self` (Masterwork's own ladder), `none`, or a registered third party mod's id. **Applies on the next server restart**: the crafting hammers are minted around the active system at boot, so the running server keeps the one it started with, and every surface that reports the setting says which system is actually driving the roll meanwhile. |
 
 ## `progressionSources`
 
@@ -181,8 +181,7 @@ One entry per registered progression source, keyed by its id, kept in the file e
 | `levelThresholds` | Seven levels on that source's own ladder, one per odds table anchor, saying where each row lands. Identity (`[1, 2, 3, 4, 5, 6, 7]`) for a source whose ladder already is seven ranks. |
 | `trackKeys` | For a source with per skill ladders, what it calls each of the three gear tracks. Only read while `customTrackKeys` is `true`. |
 | `customTrackKeys` | Default `false`. Off, all three tracks read the source's own default skill. |
-| `useLuckAttribute` | Whether this source's luck stat (if it has one) is spent on the roll. |
-| `renameHammersByAnchor` | Default `true`. Whether the four hammers are renamed after the progression stage they unlock at, under a third party ladder. |
+| `renameHammersByAnchor` | Default `true`. Whether the four hammers are renamed after the progression stage they unlock at, under a third party ladder. Set from the **Hammer** section of the Settings tab (not Progression, despite being stored per source); inert there while Built-In or `none` is the selected system. |
 | `interpolateLevels` | Default `true`. Off, a level between two anchors rolls the lower anchor's row unchanged instead of blending toward the next one. |
 
 ## `builtInProgression`

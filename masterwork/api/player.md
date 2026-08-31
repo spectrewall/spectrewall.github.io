@@ -38,7 +38,7 @@ This handle needs a live `PlayerRef`, so it covers online players only. The one 
 | `level(category)` | The crafter's raw level on the active source's own ladder for `category`, `1` through that source's `maxLevel()`. This is the number that actually decides grade odds, whichever mod it comes from. |
 | `progress(category)` | How far into that level the crafter is, as a `LadderProgress`, or `null` when the active source cannot say. Display grade only; never gate on it. |
 | `ladderName(category)` | What the active source calls the ladder `category` reads from, or `null` when the ladder simply is the track. |
-| `luck(category)` | The crafter's own luck stat on that ladder, as a fraction, `0` when the source has none or it is switched off. Does not include a held crafting hammer. |
+| `luck(category)` | The crafter's own luck stat on that ladder, as a fraction, `0` when progression is off or the active source has no such stat. Does not include a held crafting hammer. |
 | `effectiveLuck(category)` | `luck(category)` plus the luck of the crafting hammer currently in the crafter's hand, while the active ladder spends a hammer's bonus as luck. This is the whole figure biasing the crafter's next roll. |
 
 ## Masterwork's own ladder

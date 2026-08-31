@@ -17,7 +17,7 @@ Progression is what biases the Grade roll toward the higher tiers as a crafter g
 
 Masterwork ships its own ladder, [Built-In](built-in.html), on by default. A server can instead point the roll at a supported third party mod's own leveling system, [MMOSkillTree](mmoskilltree.html) today, so a crafter's odds are driven by the same numbers their skill screen already shows.
 
-Only one system is ever active. Switch with `/masterwork progression system set <none|self|<source id>> --confirmation=true`, or from the Settings tab of the `/masterwork` page:
+Only one system is ever active. Switch with `/masterwork progression system set <none|self|<source id>> --confirmation=true`, or from the Settings tab of the `/masterwork` page &mdash; either way the change **takes effect at the next server restart**, since the crafting hammers are minted around the active system at boot. Until then every surface that reports the setting also names the system the roll is actually using:
 
 - `none` &mdash; progression is off; every craft uses the flat `noProgressionOdds` table.
 - `self` &mdash; Masterwork's own Built-In ladder.

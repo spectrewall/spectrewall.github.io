@@ -8,7 +8,7 @@ mod: masterwork
 # Hammer
 {: .no_toc }
 
-Crafting hammer tuning and recovery. Bare `/mw hammer` prints the enabled state, the owner only bonus switch, all three scalars, and the bind state.
+Crafting hammer tuning and recovery. Bare `/mw hammer` prints the enabled state, the owner only bonus switch, all three scalars, and the bind state. Where the owner only switch is on but cannot apply &mdash; the active progression system reads the hammer's bonus off the item, so it goes to whoever holds it &mdash; the readout says so under that line.
 
 1. TOC
 {:toc}
