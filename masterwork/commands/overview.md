@@ -31,7 +31,7 @@ Prints the same usage listing the bare root prints for the console, for a player
 
 | Page | Covers |
 |---|---|
-| [Blacklist](blacklist.html) | `blacklist add`, `blacklist remove`, `blacklist list`: keeping specific items out of grading entirely. |
+| [Blacklist](blacklist.html) | `blacklist add`, `blacklist remove`, `blacklist list`, and the `blacklist mod` trio: keeping specific items, or whole mods, out of grading entirely. |
 | [Export](export.html) | `export <item> [--full=true]`: dumping a graded variant's resolved JSON for a resource pack override. |
 | [Grade](grade.html) | `grade list`, `grade set`, `grade weight`, `grade enable`, `grade disable`: tuning the seven tier ladder. |
 | [Hammer](hammer.html) | `hammer set`, `hammer bind`, `hammer recover`, `hammer stash`: crafting hammer tuning and recovery. |

@@ -15,7 +15,7 @@ Masterwork's settings live in `masterwork-config.json`, under `mods/Masterwork/`
 
 ## How settings apply
 
-Most of the file is read live: a progression, notification, ranking, hammer or signature edit takes effect on the next craft, join or command. A handful of blocks decide which item variants and recipes exist at all, `blacklist`, `grades`, `lootGrades` and `instantRecipeSeconds`, so an edit there is read again only at the next server restart, exactly as the settings page and the commands that touch them say.
+Most of the file is read live: a progression, notification, ranking, hammer or signature edit takes effect on the next craft, join or command. A handful of blocks decide which item variants and recipes exist at all, `blacklist`, `modBlacklist`, `grades`, `lootGrades` and `instantRecipeSeconds`, so an edit there is read again only at the next server restart, exactly as the settings page and the commands that touch them say.
 
 ## Top level
 
@@ -32,6 +32,18 @@ A flat array of item ids kept out of grading entirely: no variants are minted fo
 ```json
 "blacklist": [ "Weapon_Sword_Crude" ]
 ```
+
+## `modBlacklist`
+
+The same exclusion, one level coarser: a flat array of mod identities, each written as the `Group:Name` pair that mod's `manifest.json` declares. Every item the mod ships is treated exactly as if you had listed its id in `blacklist`.
+
+```json
+"modBlacklist": [ "KiriOfTheWoods:Homesteadin" ]
+```
+
+Use it when you want a whole mod left alone rather than a handful of its items. The two lists add up: an item is excluded if it is on either.
+
+An entry is kept even while that mod is not installed, so uninstalling a mod for a while does not silently discard your decision about it. Editing this list, like `blacklist`, takes effect at the next server restart.
 
 ## `grades`
 
