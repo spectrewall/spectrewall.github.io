@@ -35,7 +35,7 @@ Prints the same usage listing the bare root prints for the console, for a player
 | [Export](export.html) | `export <item> [--full=true]`: dumping a graded variant's resolved JSON for a resource pack override. |
 | [Grade](grade.html) | `grade list`, `grade set`, `grade weight`, `grade enable`, `grade disable`: tuning the seven tier ladder. |
 | [Hammer](hammer.html) | `hammer set`, `hammer bind`, `hammer recover`, `hammer stash`: crafting hammer tuning and recovery. |
-| [Item](item.html) | `item set grade`, `item set crafter`, `item set crafterByUuid`, `item resync`: test and correction hooks against the item in the caller's hand. |
+| [Item](item.html) | `item set grade`, `item set crafter`, `item set crafterByUuid`, `item resync`, `item break`: test and correction hooks against the item in the caller's hand. |
 | [Notifications](notifications.html) | `notifications xp`, `notifications level`, `notifications announce`, `notifications welcome`: server wide notification switches. |
 | [Odds](odds.html) | `odds [level]`: the grade roll odds table. |
 | [Progression](progression.html) | `progression current`, `progression notify`, `progression list`, `progression set`, `progression system`, `progression system set`: progression system selection and per player toast preferences. |

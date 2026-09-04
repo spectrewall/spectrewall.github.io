@@ -61,6 +61,8 @@ Shipped defaults, one row per tier:
 
 Durability steps deliberately widen toward the top of the ladder rather than scaling linearly: the jump to 2.00 at Exquisite and 5.00 at Masterwork is what keeps the top tier feeling worth its rarity, since it is what a player feels over an item's whole life rather than per swing.
 
+Changing a durability multiplier takes effect at the next server restart, and items that already exist follow as they are reached &mdash; on login, on an inventory change, or when a container is opened. They are rescaled **in proportion** rather than snapped to the new maximum, so whatever repair kits had already cost an item is kept: a piece whose maximum had been worn from 400 down to 358 lands on 716 when the multiplier doubles, not on a full 800. Setting the multiplier back returns it to where it was. A piece sitting in a chest nobody opens keeps its old numbers until somebody reaches it.
+
 ## `noProgressionOdds`
 
 One relative weight per Grade, used as the roll distribution while the progression modifier is off (`progression.enabled: false`). Normalized at roll time, so the numbers do not have to sum to 100, though the defaults do:
@@ -150,6 +152,7 @@ The crafting hammer feature.
 | `nonOwnerDamageReflectedMultiplier` | `0.5` | Fraction of that hit reflected back onto the non owner. |
 | `bindToOwner` | `true` | Whether a hammer left in a non owner's inventory is confiscated back to its owner's recovery stash. |
 | `customUnlocks` | `false` | Whether the four hidden hammer recipes are gated by the `unlocks` block below instead of the shipped defaults. |
+| `recipesUnlockGuide` | `true` | Whether a hammer nobody has learned yet explains, on hover, what it would take. The Statistics tab shows all four hammers as a strip with the unlearned ones dimmed; with this on, hovering a dimmed one lists the level and the skill it counts in, the hammer that has to be broken first, and the grade already forged. That list is read from the requirements in effect, so it follows `customUnlocks`, the `unlocks` block and the active progression system's level thresholds. Turning it off leaves the strip in place and the dimmed hammers silent. It never teaches a recipe early: the four stay hidden until their conditions are met either way. |
 
 ### `hammer.unlocks.<TIER>`
 
