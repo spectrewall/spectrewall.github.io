@@ -23,7 +23,7 @@ Most of the file is read live: a progression, notification, ranking, hammer or s
 |---|---|---|
 | `debug` | `false` | Verbose console diagnostics: per craft grade and XP lines, and the boot injection dump. Off by default; warnings and errors always print regardless of this switch. |
 | `instantRecipeSeconds` | `1` | The craft time, in seconds, given at boot to a gradeable item whose shipped recipe is instant. A `0` recipe scores no ranking points and only the flat XP branch, so the crude tier (which ships instant) is given a real craft time to score against. `0` leaves every recipe as it ships. |
-| `excludeWansWonderWeapons` | `true` | Keeps a specific sibling mod's weapons out of the grade system entirely, since two of that mod's items transform into another item id and cannot be graded at all. The row only shows on the settings page while that mod is installed, but the key is kept in the file either way. |
+| `excludeWansWonderWeapons` | `true` | Keeps a specific sibling mod's weapons out of the grade system entirely, since its pieces are designed weapons with a quality of their own rather than gear a crafter forges. Set it to `false` and they are graded like any other gear, including the two that switch between forms while held. The row only shows on the settings page while that mod is installed, but the key is kept in the file either way. |
 
 ## `blacklist`
 
