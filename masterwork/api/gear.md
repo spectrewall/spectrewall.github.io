@@ -70,6 +70,8 @@ Masterwork builds a variant by encoding the resolved base item to a `BsonDocumen
 | `neutral` | Whether this variant is a blacklisted item's placeholder, minted only so its id keeps resolving for copies already in the world. A transformer should usually leave these alone. |
 | `baseOverride` | Whether this is the in-place rewrite of the base item itself (the base tier is the base item), reaching every copy of the plain item in the world, crafted or not. |
 
+Gear that toggles between states while held (a throw stance, an area-break mode) carries them under `State` in the variant's document, one entry per state holding only what that state restates. A `VariantTransformer` edit that must survive the toggle has to be applied to each of those entries as well as to the top level.
+
 ### Contract both hooks share
 
 - **Return the document to continue with.** Editing it in place and returning it is the normal shape; returning a different instance is equally fine.

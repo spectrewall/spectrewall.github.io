@@ -48,7 +48,7 @@ A bulk craft that overflows the crafter's inventory is reported per unit: each u
 |---|---|
 | `GRADED` | A grade was rolled: `grade()` is the tier, the crafter was tallied, and XP and ranking points were awarded by the rules currently in force. |
 | `HAND_CRAFTED` | The piece was made in hand, from the inventory screen with no bench, while the field craft rule is on. Held at the base grade (no roll at all, deliberately not the same as a bad one), earning no XP, no tally and no ranking points. `grade()` is the base tier and `handCrafted()` is `true`. |
-| `NOT_GRADED` | Masterwork left the craft alone: the item is blacklisted, excluded by a sibling mod, a crafting hammer, or an item that transforms into another id. The crafter stamp is still written, but `grade()` is `null` and nothing was awarded. |
+| `NOT_GRADED` | Masterwork left the craft alone: the item is blacklisted, excluded by a sibling mod, a crafting hammer, or an item with a `State` the grade cannot follow (one naming another item, or kept out). The crafter stamp is still written, but `grade()` is `null` and nothing was awarded. |
 
 ## Payload
 
