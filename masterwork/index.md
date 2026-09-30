@@ -23,7 +23,7 @@ Both features are implemented and verified in game. The crafter stamp works acro
 Grade is a seven tier craftsmanship ladder, independent from the game's own material rarity system:
 
 <ul class="grade-list">
-  <li><span class="grade-swatch" style="background:var(--grade-masterwork)"></span><span class="grade-name">Masterwork</span><span class="grade-note">top tier, red</span></li>
+  <li><span class="grade-swatch" style="background:var(--grade-masterwork)"></span><span class="grade-name">Masterwork</span><span class="grade-note">top tier, red, with its own slot border and tooltip background</span></li>
   <li><span class="grade-swatch" style="background:var(--grade-exquisite)"></span><span class="grade-name">Exquisite</span><span class="grade-note">gold</span></li>
   <li><span class="grade-swatch" style="background:var(--grade-superior)"></span><span class="grade-name">Superior</span><span class="grade-note">purple</span></li>
   <li><span class="grade-swatch" style="background:var(--grade-well)"></span><span class="grade-name">Well-Crafted</span><span class="grade-note">blue</span></li>
@@ -35,6 +35,8 @@ Grade is a seven tier craftsmanship ladder, independent from the game's own mate
 Common is the base tier: a common roll yields the item's shipped id and stats, only with its rarity border normalized to Masterwork's own Common quality. Every tier above and below it mints a distinct item variant, so a Masterwork sword is a different item instance from a Common one, with its own stats and its own quality border.
 
 > **Grade vs. Quality.** Quality is the base game's `ItemQuality` asset system, the colored slot and border a player already knows from vanilla rarity. Masterwork injects its own custom quality assets, one per Grade, and stamps them on graded items so the border communicates the Grade rather than the item's native material rarity.
+
+Gear that switches between states while held, such as a pickaxe with an area break mode, is graded like any other piece and keeps its Grade in every state. One exception is temporary: while Endgame&QoL is installed, its spears are not graded, and a spear that already carries a Grade goes back to its plain item. Grading them returns once a thrown spear can be handled safely.
 
 ## Drops and chests
 
