@@ -72,6 +72,10 @@ A found piece rolls no XP, no ranking points and no crafter stamp: finding a pie
     <span class="card-title">Configuration</span>
     <span class="card-desc">Every setting in masterwork-config.json, its default and what it controls.</span>
   </a>
+  <a class="nav-card" href="{{ 'masterwork/addons/forge-souls/' | relative_url }}">
+    <span class="card-title">Forge Souls</span>
+    <span class="card-desc">The optional addon: offer graded gear at the Soul Anvil for its soul, and spend souls to restore worn pieces.</span>
+  </a>
   <a class="nav-card" href="{{ 'masterwork/api/overview.html' | relative_url }}">
     <span class="card-title">Public API</span>
     <span class="card-desc">How another plugin reads a crafter's standing, reacts to a craft, registers its own items for grading, or edits graded gear in bulk.</span>

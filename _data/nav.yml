@@ -45,6 +45,11 @@ mods:
             url: /masterwork/commands/signature.html
       - title: Configuration
         url: /masterwork/configuration.html
+      - title: Addons
+        url: /masterwork/addons/forge-souls/
+        children:
+          - title: Forge Souls
+            url: /masterwork/addons/forge-souls/
       - title: Public API
         url: /masterwork/api/overview.html
         children:
