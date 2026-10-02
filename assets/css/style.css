@@ -227,6 +227,17 @@ main.content.home { max-width: none; }
 
 .page-body h1 { font-size: 34px; margin: 0 0 20px; }
 .page-body h1.no_toc { margin: 0 0 20px; }
+.version-tag {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 3px 8px;
+  vertical-align: middle;
+}
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge-row a { line-height: 0; }
 
 .page-body h2 {
   font-size: 22px;

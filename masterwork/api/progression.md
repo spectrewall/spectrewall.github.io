@@ -46,6 +46,7 @@ public final class YourLevelSource implements ProgressionSource {
 | `ladderName(category)` | What this source calls the ladder `category` reads from, or `null` when the ladder simply is the track (the built in source's case). |
 | `ladderLabelKey(ladder)` | The message id that names `ladder` in the reader's own language, or `null` to print the name as it stands. |
 | `ladderChoices()` | Every ladder name a server may point a track at, so the settings page can offer a picker instead of a free text field. |
+| `grantCraftXp(store, player, category, work, multiplier)` | Award the crafter XP on the ladder `category` reads from, as if they had made `work` (a `CraftWork`: item level, craft time, recipe id), scaled by `multiplier`, and return what was granted in this source's own units. This is what `MasterworkPlayer.grantCraftXp` reaches when this source is the active one. Called outside a system tick, on the player's world thread. Like `luck()`, it must not throw. The default returns `0`, the honest answer for a source that cannot award XP. Since `1.3.0`. |
 | `maxLevel()` / `defaultThresholds()` / `defaultTrackKeys()` | How this source's ladder is shaped, and what its `progressionSources` config entry is seeded with the first time it is registered. |
 
 ## A source must never throw on the craft path

@@ -84,11 +84,12 @@ The tally counts graded crafts only: a piece Masterwork left alone (blacklisted,
 
 ## Attributed writes
 
-Two writes exist for a mod that wants to reward something Masterwork itself did not craft, a quest, a lesson, a discovery. Both are attributed and logged, at a level the `debug` switch cannot silence, since the server owner is owed the name of whoever moved a crafter's standing or the public ranking board.
+Three writes exist for a mod that wants to reward something Masterwork itself did not craft, a quest, a lesson, a discovery. All three are attributed and logged, at a level the `debug` switch cannot silence, since the server owner is owed the name of whoever moved a crafter's standing or the public ranking board.
 
 | Method | Effect |
 |---|---|
 | `grantNativeXp(source, track, xp)` | Award XP on Masterwork's own ladder. A no-op, logged as a warning, while the built in source is not the active one: nobody is earning that XP right now, and topping up a frozen total would surprise the server owner the day they switch back. It deliberately tallies nothing, since a grant did not forge a piece. |
+| `grantCraftXp(source, track, work, multiplier)` | Award XP as if the player had crafted `work`, a `CraftWork(itemLevel, craftTimeSeconds, recipeId)`, scaled by `multiplier`, on whichever progression system is active. Each system prices the work by its own rule, so it pays what the same craft would there. Returns what was granted in that system's own units, `0` while progression is off. Like `grantNativeXp`, it tallies nothing, and a `multiplier` or craft time that is not a finite positive number is ignored. Since `1.3.0`. |
 | `awardRankingPoints(source, track, points)` | Award points on the ranking board, on `track`. The live board index is updated alongside the stored total, so the row on screen and the player's own file cannot drift. |
 
 There is no way to write the craft tally at all: it is a factual record of pieces forged, and a mod that could fabricate rows would make the crafting statistics a claim nobody could trust.

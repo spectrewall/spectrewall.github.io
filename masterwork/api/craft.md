@@ -57,7 +57,7 @@ A bulk craft that overflows the crafter's inventory is reported per unit: each u
 | `crafterUuid()` / `crafterName()` | The crafter. |
 | `baseItemId()` | The item id the recipe produced, before any grade swap. |
 | `itemId()` | The id the crafter actually received: the variant id when a grade above the base was rolled, `baseItemId()` otherwise. |
-| `craftedStack()` | The final, graded, stamped stack, read only. Mutating this reference does not change what the player received; `ItemStack` is copy on write, and the value was already written elsewhere. |
+| `craftedStack()` | The final stack the crafter received, read only. On a `NOT_GRADED` craft it is the stack as crafted, signed only if it is a crafting hammer. Mutating this reference does not change what the player received; `ItemStack` is copy on write, and the value was already written elsewhere. |
 | `grade()` | The Grade this craft came out at, or `null` for `NOT_GRADED`. May be the base tier either as a genuine roll or because the piece was hand crafted; `handCrafted()` tells the two apart. |
 | `category()` | The item's own gear category. Not always the track its XP went to: a shield reports `SHIELD` here while its XP levels `WEAPON`. Call `GearCategory.progressionCategory()`, or read `NativeXpResult.track()`, for the track. |
 | `outcome()` | What Masterwork did with this craft. |
