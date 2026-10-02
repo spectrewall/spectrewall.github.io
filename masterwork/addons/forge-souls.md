@@ -2,11 +2,12 @@
 title: Forge Souls
 permalink: /masterwork/addons/forge-souls/
 mod: masterwork
+version: 1.0.0
 ---
 
 <div class="eyebrow">Masterwork &rsaquo; Addons &rsaquo; Forge Souls</div>
 
-# Forge Souls
+# Forge Souls <span class="version-tag">v{{ page.version }}</span>
 {: .no_toc }
 
 An optional addon for Masterwork, shipped as its own jar, `Masterwork-ForgeSouls-<version>.jar`, attached to every release beside Masterwork's. It adds the **Soul Anvil**, where a graded piece of gear is offered up for its soul, a hundred essences merge into one soul, and a soul restores a worn piece to its full durability.
