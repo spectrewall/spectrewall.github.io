@@ -43,6 +43,8 @@ Common is the base tier: a common roll yields the item's shipped id and stats, o
 
 Gear that switches between states while held, such as a pickaxe with an area break mode, is graded like any other piece and keeps its Grade in every state. One exception is temporary: while Endgame&QoL is installed, its spears are not graded, and a spear that already carries a Grade goes back to its plain item. Grading them returns once a thrown spear can be handled safely.
 
+A tool with no durability is signed but never graded: there is nothing for a Grade to scale, and the animals it works on only answer to the plain item. Today that is the shears. A pair graded before this rule goes back to its plain item the next time its holder joins, and keeps its "Crafted by".
+
 ## Drops and chests
 
 Grade is not only rolled at the crafting bench. Gear the world gives a player, a mob's drop or a chest's contents, is graded too, on its own odds table with its own tuning. By default the top tier is not available there at all: Masterwork is a title a crafter earns, not one a player finds lying on the ground. A drop table can also pin an exact tier on a hand authored reward, so a quest chest can hand out a guaranteed Superior sword.
