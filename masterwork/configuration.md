@@ -164,13 +164,14 @@ Server wide switches. A player has their own opt out for the first two, layered 
 
 ## `signature`
 
-The colors of the crafter signature line shown on a stamped item's tooltip. Read at stamp time and baked onto that item instance, so recoloring the server default reaches gear already in the world only through the item resync sweep.
+The crafter signature shown on a stamped item's tooltip. The three colors are read at stamp time and baked onto that item instance, so recoloring the server default reaches gear already in the world only through the item resync sweep. `showGearLevel` is not baked and applies at once, to gear already in the world too.
 
 | Field | Default | Description |
 |---|---|---|
 | `lineColor` | `#B0A48C` | The "Crafted by \<name\>" line itself. |
 | `hammerNoteColor` | `#FFEA00` | A crafting hammer's ownership note. |
 | `hammerLuckColor` | `#AAAAAA` | The luck bonus line on a crafting hammer's tooltip. |
+| `showGearLevel` | `null` | Whether crafted gear shows its item level under the crafter's name. Left at `null`, it is on when the Forge Souls addon is installed and off when it is not, since Forge Souls prices its offerings and restores by that level. Changing it on the Settings tab stores an explicit `true` or `false`, which no longer follows the addon. A piece whose item level is 0 shows no line. |
 
 ## `hammer`
 
