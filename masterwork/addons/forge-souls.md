@@ -2,7 +2,7 @@
 title: Forge Souls
 permalink: /masterwork/addons/forge-souls/
 mod: masterwork
-version: 1.0.0
+version: 1.1.0
 ---
 
 <div class="eyebrow">Masterwork &rsaquo; Addons &rsaquo; Forge Souls</div>
@@ -15,7 +15,7 @@ An optional addon for Masterwork, shipped as its own jar, `Masterwork-ForgeSouls
 1. TOC
 {:toc}
 
-> **Hard dependency.** Forge Souls requires Masterwork `1.3.0` or newer. Never install it alone, and update the two together: the jars attached to one release were built from the same commit and tested as a pair.
+> **Hard dependency.** Forge Souls requires Masterwork `1.5.0` or newer. Never install it alone, and update the two together: the jars attached to one release were built from the same commit and tested as a pair.
 
 ## Installing
 
@@ -24,6 +24,8 @@ Drop the jar into the server's `mods/` folder beside Masterwork's, and restart. 
 Forge Souls has no commands and no permission nodes of its own. Its settings are edited from Masterwork's **Settings** tab, so `masterwork.admin` covers them (see [Permissions]({{ '/masterwork/permissions.html' | relative_url }})).
 
 ## The Soul Anvil
+
+The anvil's recipe is hidden until a player forges a piece of **Superior** grade or better, and that craft teaches it. A player who already had such a piece in their craft record before the addon was installed learns it the next time they join. Until then, the **Statistics** tab of `/masterwork` shows the anvil dimmed under **Crafting benches**, and hovering it says what is still missing (`recipesUnlockGuide` in [Masterwork's configuration]({{ '/masterwork/configuration.html' | relative_url }}#hammer) turns that hint off).
 
 The anvil is crafted at a **tier 3 Workbench** from 32 Adamantite Bars, 8 Tree Sap, 100 Fire Essence and 1 Voidheart. Place it, then use it with the piece you want to work on in your hand. The anvil reads what you are holding and opens on the job that piece allows; a piece both jobs accept asks which one you mean.
 
@@ -137,6 +139,7 @@ if (api != null) {
 | `essence(kind, level, quantity)` / `essenceLevel(stack)` | Make a Forge Essence or Forge Soul stack at a level, or read the level off one. |
 | `offeringCamera(ref)` / `stationTutorial(ref)` and their setters | A player's two Preferences. |
 | `jobCount(ref, mode)` | How many jobs of one kind a player has finished. |
+| `soulAnvilItemId()` / `soulAnvilUnlockGrade()` | The Soul Anvil's item id, which is also its recipe's key, and the lowest grade whose forging teaches that recipe. |
 | `apiVersion()` / `pluginVersion()` | The running addon's API version and plugin version. |
 
 ### `SoulAnvilJobEvent`

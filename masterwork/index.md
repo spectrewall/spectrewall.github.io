@@ -3,7 +3,7 @@ title: Masterwork
 mod: masterwork
 permalink: /masterwork/
 description: A Hytale server plugin that introduces a craftsmanship system to forging.
-version: 1.3.0
+version: 1.5.0
 ---
 
 <div class="eyebrow">Masterwork</div>
@@ -12,7 +12,7 @@ version: 1.3.0
 
 <p class="badge-row"><a href="https://discord.gg/aUyPHz3dbm" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/DISCORD-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Discord"></a> <a href="https://www.buymeacoffee.com/SpectreWall" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/BUY%20ME%20A%20COFFEE-FFDD00?style=for-the-badge&amp;logo=buymeacoffee&amp;logoColor=black" alt="Buy Me a Coffee"></a></p>
 
-Download it from [CurseForge](https://www.curseforge.com/hytale/mods/masterwork), [Modifold](https://modifold.com/mod/masterwork) or [Modtale](https://modtale.net/mod/masterwork).
+Download it from [CurseForge](https://www.curseforge.com/hytale/mods/masterwork), [Modifold](https://modifold.com/mod/masterwork) or [Modtale](https://modtale.net/mod/masterwork). It is built for Hytale 0.7.
 
 A Hytale server plugin that introduces a craftsmanship system to forging. Each piece of gear is signed with its creator's name and receives a unique quality roll, reflecting how well it was crafted.
 

@@ -15,7 +15,7 @@ Masterwork's settings live in `masterwork-config.json`, under `mods/Masterwork/`
 
 ## How settings apply
 
-Most of the file is read live: a progression, notification, ranking, hammer or signature edit takes effect on the next craft, join or command. A handful of blocks decide which item variants and recipes exist at all, `blacklist`, `modBlacklist`, `grades`, `lootGrades` and `instantRecipeSeconds`, so an edit there is read again only at the next server restart, exactly as the settings page and the commands that touch them say.
+Most of the file is read live: a progression, notification, ranking, hammer or signature edit takes effect on the next craft, join or command. A handful of blocks decide which item variants and recipes exist at all, `blacklist`, `modBlacklist`, `grades`, `lootGrades`, `instantRecipeSeconds` and `recipeInputMaxGrade`, so an edit there is read again only at the next server restart, exactly as the settings page and the commands that touch them say.
 
 ## Top level
 
@@ -23,6 +23,7 @@ Most of the file is read live: a progression, notification, ranking, hammer or s
 |---|---|---|
 | `debug` | `false` | Verbose console diagnostics: per craft grade and XP lines, and the boot injection dump. Off by default; warnings and errors always print regardless of this switch. |
 | `instantRecipeSeconds` | `1` | The craft time, in seconds, given at boot to a gradeable item whose shipped recipe is instant. A `0` recipe scores no ranking points and only the flat XP branch, so the crude tier (which ships instant) is given a real craft time to score against. `0` leaves every recipe as it ships. |
+| `recipeInputMaxGrade` | `WELL_CRAFTED` | The highest Grade a recipe takes when it asks for a piece of gear by name, such as a recipe from another mod that turns a bow into a better bow. Without this, no crafted piece could be used at all, only one found as loot. A piece above this Grade is never spent by such a recipe, so a fine weapon is not lost as a plain ingredient. Set it to `MASTERWORK` to let those recipes take any piece. Also set in Settings &rsaquo; General. A recipe that names a Grade range of its own keeps it; see [Using graded gear in custom recipes](custom-recipes.html). |
 | `excludeWansWonderWeapons` | `true` | Keeps a specific sibling mod's weapons out of the grade system entirely, since its pieces are designed weapons with a quality of their own rather than gear a crafter forges. Set it to `false` and they are graded like any other gear, including the two that switch between forms while held. The row only shows on the settings page while that mod is installed, but the key is kept in the file either way. |
 
 ## `blacklist`
@@ -124,6 +125,26 @@ Governs a craft made in hand, from the inventory screen with no bench, for the h
 | `enabled` | `true` | While on, a hand craft is held at the base Grade (no roll, no XP, no tally, no ranking points) instead of being treated as an ordinary craft. |
 | `warningIntervalHours` | `4` | How often the crafter is reminded, in chat, that the piece they just made in hand was not graded. |
 
+## `aetherhaven`
+
+Prices graded gear in the player market of the Aetherhaven mod. Aetherhaven only lets a player list an item that has a shop price, and a graded piece is a different item from its base, so without this block a graded piece cannot be listed at all. It does nothing while Aetherhaven is not installed, and its rows only show on the settings page while it is.
+
+| Field | Default | Description |
+|---|---|---|
+| `shopPrices` | `true` | Whether graded gear gets a shop price. Each graded piece costs its base item's price times the multiplier of its Grade. A piece whose base has no price in Aetherhaven gets none either. |
+| `shopPriceMultipliers` | see below | One multiplier per Grade, as a multiple of the base item's price. The base Grade is always the base price itself. |
+
+| Grade | Default multiplier |
+|---|---|
+| Masterwork | 4 |
+| Exquisite | 2.5 |
+| Superior | 1.7 |
+| Well-Crafted | 1.35 |
+| Adequate | 1.15 |
+| Poor | 0.75 |
+
+The prices are written into a file Aetherhaven reads with the rest of its shop prices, at every server start and whenever you save a change to this block on the settings page. A price you set yourself for a graded item in Aetherhaven's own `shop_prices.json` still wins. If you change a base item's price in Aetherhaven, save on the settings page or restart the server for the graded prices to follow.
+
 ## `notifications`
 
 Server wide switches. A player has their own opt out for the first two, layered on top of these.
@@ -164,7 +185,7 @@ The crafting hammer feature.
 | `nonOwnerDamageReflectedMultiplier` | `0.5` | Fraction of that hit reflected back onto the non owner. |
 | `bindToOwner` | `true` | Whether a hammer left in a non owner's inventory is confiscated back to its owner's recovery stash. |
 | `customUnlocks` | `false` | Whether the four hidden hammer recipes are gated by the `unlocks` block below instead of the shipped defaults. |
-| `recipesUnlockGuide` | `true` | Whether a hammer nobody has learned yet explains, on hover, what it would take. The Statistics tab shows all four hammers as a strip with the unlearned ones dimmed; with this on, hovering a dimmed one lists the level and the skill it counts in, the hammer that has to be broken first, and the grade already forged. That list is read from the requirements in effect, so it follows `customUnlocks`, the `unlocks` block and the active progression system's level thresholds. Turning it off leaves the strip in place and the dimmed hammers silent. It never teaches a recipe early: the four stay hidden until their conditions are met either way. |
+| `recipesUnlockGuide` | `true` | Whether a hammer nobody has learned yet explains, on hover, what it would take. The Statistics tab shows all four hammers as a strip with the unlearned ones dimmed; with this on, hovering a dimmed one lists the level and the skill it counts in, the hammer that has to be broken first, and the grade already forged. That list is read from the requirements in effect, so it follows `customUnlocks`, the `unlocks` block and the active progression system's level thresholds. Turning it off leaves the strip in place and the dimmed hammers silent. It never teaches a recipe early: the four stay hidden until their conditions are met either way. With Forge Souls installed, the same switch covers the Soul Anvil, shown dimmed under **Crafting benches** below the hammers. |
 
 ### `hammer.unlocks.<TIER>`
 

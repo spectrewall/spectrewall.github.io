@@ -16,6 +16,8 @@ mods:
             url: /masterwork/progression/mmoskilltree.html
       - title: Droplist
         url: /masterwork/droplist.html
+      - title: Custom Recipes
+        url: /masterwork/custom-recipes.html
       - title: Permissions
         url: /masterwork/permissions.html
       - title: Commands
