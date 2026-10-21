@@ -117,7 +117,7 @@ One multiplier per job, shown as **Progression**: the share of the piece's craft
 
 ## Public API
 
-Forge Souls has a public API of its own, under `com.spectrewall.forgesouls.api`, following the same stability rule as [Masterwork's]({{ '/masterwork/api/overview.html' | relative_url }}#versioning). Depend on it softly, under `OptionalDependencies`, and reach it through:
+Forge Souls has a public API of its own, under `com.spectrewall.forgesouls.api`, following the same stability rule as [Masterwork's]({{ '/masterwork/api/overview.html' | relative_url }}#versioning). Depend on it softly, declaring `SpectreWall:MasterworkForgeSouls` under `OptionalDependencies`, and reach it through:
 
 ```java
 ForgeSoulsApi api = ForgeSoulsApi.get();
