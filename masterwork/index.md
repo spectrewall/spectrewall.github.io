@@ -3,7 +3,7 @@ title: Masterwork
 mod: masterwork
 permalink: /masterwork/
 description: A Hytale server plugin that introduces a craftsmanship system to forging.
-version: 1.5.0
+version: 1.6.0
 ---
 
 <div class="eyebrow">Masterwork</div>

@@ -2,7 +2,7 @@
 title: Forge Souls
 permalink: /masterwork/addons/forge-souls/
 mod: masterwork
-version: 1.1.0
+version: 1.2.0
 ---
 
 <div class="eyebrow">Masterwork &rsaquo; Addons &rsaquo; Forge Souls</div>
@@ -15,7 +15,7 @@ An optional addon for Masterwork, shipped as its own jar, `Masterwork-ForgeSouls
 1. TOC
 {:toc}
 
-> **Hard dependency.** Forge Souls requires Masterwork `1.5.0` or newer. Never install it alone, and update the two together: the jars attached to one release were built from the same commit and tested as a pair.
+> **Hard dependency.** Forge Souls requires Masterwork `1.6.0` or newer. Never install it alone, and update the two together: the jars attached to one release were built from the same commit and tested as a pair.
 
 ## Installing
 
